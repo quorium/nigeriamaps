@@ -1,0 +1,20 @@
+{
+    "color": ["#CCFF00", "#CC9900", "#CC6600", "#CC3300", "#CC0000"],
+    "oldColor": ["#00FFCC", "#00CCCC", "#0099CC", "#0066CC", "#0033CC"],
+    "val": {
+        "terrorism": [300, 1000, 2600, 6600, 17000],
+        "TR_Robbery": [250, 650, 1200, 2500, 8500],
+        "DrugTraff": [25, 75, 140, 215, 650],
+        "Kidnapping": [600, 1200, 1800, 2400, 3000],
+        "Homicide": [450, 900, 1500, 2800, 8500],
+        "TR_Epidemi": [27, 80, 160, 240, 360],
+        "HumanRigh": [50, 200, 390, 890, 5400],
+        "ThreatInd": [2800, 5000, 10000, 18000, 50000]
+    },
+    "popupFields" : {
+        "admin":true,
+        "capital":true,
+        "region":true,
+        "population":true        
+    }
+}
