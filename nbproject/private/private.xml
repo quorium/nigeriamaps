@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <coverage xmlns="http://www.netbeans.org/ns/code-coverage/1" enabled="false"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>js/appjs/fullmain.js</url>
+            <bookmark id="1">
+                <name/>
+                <line>343</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/var/www/html/NigeriaMapsThird/js/appjs/util.js</file>
+            <file>file:/var/www/html/NigeriaMapsThird/js/appjs/StateIncidentList.js</file>
+            <file>file:/var/www/html/NigeriaMapsThird/js/appjs/thirdfullmain.js</file>
+            <file>file:/var/www/html/NigeriaMapsThird/js/appjs/StateCustomListItem.js</file>
+            <file>file:/var/www/html/NigeriaMapsThird/third.html</file>
+       NigeriaMapsThirdfile:/var/www/html/NigeriaMapsThird/js/appjs/StateIncidentListItem.js</file>
+        </group>
+    </open-files>
+</project-private>
