@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Leaflet.draw vector editing handlers</title>
+
+        <style type="text/css">
+            .table{
+                line-height: 0.4;
+            }
+            .center {
+
+                width: 10%;
+                position: absolute;
+                right: 50%;
+                top: 50%;
+
+            }
+            #main { 
+                width: 100%;
+                margin: 0 auto;
+            }
+            #map    {
+                width: 100%; 
+                height: 600px; 
+                float: left;
+            }
+            .smasdiv{
+                position: absolute;
+                z-index: 9999;
+                right: 1px;
+                background: #f2f0ea;
+                border-style: solid;
+                padding: 5px;
+            }
+            #page-wrap  {
+                width: 200px;
+                height: 400px;
+                float: left;
+            }
+            .custome{
+                width : 130px;
+            }
+            .legend {
+                line-height: 18px;
+                color: #555;
+            }
+            .legend i {
+                width: 18px;
+                height: 18px;
+                float: left;
+                margin-right: 8px;
+                opacity: 0.7;
+            }
+            .info {
+                padding: 6px 8px;
+                font: 14px/16px Arial, Helvetica, sans-serif;
+                background: white;
+                background: rgba(255,255,255,0.8);
+                box-shadow: 0 0 15px rgba(0,0,0,0.2);
+                border-radius: 5px;
+            }
+            .info h4 {
+                margin: 0 0 5px;
+                color: #777;
+            }
+
+
+        </style>
+    </head>
+    <body style="    background: beige;">
+
+
+        <div id="main">
+
+            <div id="map" style="border: 1px solid #ccc">
+<!--                <div id="smasddiv" class="smasdiv">
+                    <b>Select Indicator</b><hr><select id="filterDropDown"></select>
+                </div>-->
+            </div>
+
+
+        </div>
+
+
+
+
+
+        <script src="js/jquery-1.11.3-jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+
+        <!--<script src="js/leaflet-src.js"></script> -->
+        <!--<script src="libs/leaflet-src.js"></script>  -->
+        <!-- <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin=""></script>--> 
+
+
+
+        <script src="libs/leaflet/leaflet-src.js"></script>
+
+        <script src="src/Label.js"></script>
+        <script src="src/BaseMarkerMethods.js"></script>
+        <script src="src/Marker.Label.js"></script>
+        <script src="src/CircleMarker.Label.js"></script>
+        <script src="src/Path.Label.js"></script>
+        <script src="src/Map.Label.js"></script>
+        <script src="src/FeatureGroup.Label.js"></script>
+
+        <!-- for wkt https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js-->
+        <script src="js/leaflet-omnivore.min.js"></script>
+        <link rel="stylesheet" href="libs/leaflet.css"/>
+
+        <link rel="stylesheet" href="css/leaflet.label.css"/>
+
+        <script src="js/leaflet.label-src.js"></script>
+        <script src="src/Leaflet.draw.js"></script>
+        <script src="src/Leaflet.Draw.Event.js"></script>
+        <link rel="stylesheet" href="src/leaflet.draw.css"/>
+
+        <script src="src/Toolbar.js"></script>
+        <script src="src/Tooltip.js"></script>
+
+        <script src="src/ext/GeometryUtil.js"></script>
+        <script src="src/ext/LatLngUtil.js"></script>
+        <script src="src/ext/LineUtil.Intersect.js"></script>
+        <script src="src/ext/Polygon.Intersect.js"></script>
+        <script src="src/ext/Polyline.Intersect.js"></script>
+        <script src="src/ext/TouchEvents.js"></script>
+
+        <script src="src/draw/DrawToolbar.js"></script>
+        <script src="src/draw/handler/Draw.Feature.js"></script>
+        <script src="src/draw/handler/Draw.SimpleShape.js"></script>
+        <script src="src/draw/handler/Draw.Polyline.js"></script>
+        <script src="src/draw/handler/Draw.Circle.js"></script>
+        <script src="src/draw/handler/Draw.Marker.js"></script>
+        <script src="src/draw/handler/Draw.Polygon.js"></script>
+        <script src="src/draw/handler/Draw.Rectangle.js"></script>
+
+
+        <script src="src/edit/EditToolbar.js"></script>
+        <script src="src/edit/handler/EditToolbar.Edit.js"></script>
+        <script src="src/edit/handler/EditToolbar.Delete.js"></script>
+
+        <script src="src/Control.Draw.js"></script>
+
+        <script src="src/edit/handler/Edit.Poly.js"></script>
+        <script src="src/edit/handler/Edit.SimpleShape.js"></script>
+        <script src="src/edit/handler/Edit.Circle.js"></script>
+        <script src="src/edit/handler/Edit.Rectangle.js"></script>
+        <script src="src/edit/handler/Edit.Marker.js"></script>
+
+        <script src="src/Label.js"></script>
+        <script src="src/BaseMarkerMethods.js"></script>
+        <script src="src/Marker.Label.js"></script>
+        <script src="src/CircleMarker.Label.js"></script>
+        <script src="src/Path.Label.js"></script>
+        <script src="src/Map.Label.js"></script>
+        <script src="src/FeatureGroup.Label.js"></script>
+
+
+
+        <script src="js/appjs/fullmain.js"></script>
+        <script>
+
+        </script>
+    </body>
+</html>
