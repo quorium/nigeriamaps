@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Leaflet.draw vector editing handlers</title>
+        <link rel="stylesheet" href="libs/leaflet/leaflet.css"/>
+
+        <link rel="stylesheet" href="libs/listSideBar/assets/css/list-vertical.css">
+        <link rel="stylesheet" href="libs/listSideBar/assets/css/list-vertical.css">
+        <link rel="stylesheet" href="libs/listSideBar/assets/css/list-vertical.css">
+        <link rel="stylesheet" href="libs/dataTables/jquery.dataTables.min.css">
+        <link rel="stylesheet" href="libs/dataTables/buttons.dataTables.min.css">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+        <style type="text/css">
+            .table{
+                line-height: 0.4;
+            }
+            .center {
+
+                width: 10%;
+                position: absolute;
+                right: 50%;
+                top: 50%;
+
+            }
+            #main { 
+                width: 100%;
+                margin: 0 auto;
+            }
+            #map    {
+                width: 100%; 
+                height: 600px; 
+                float: left;
+            }
+            .smasdiv{
+                position: absolute;
+                z-index: 9999;
+                right: 1px;
+                background: #f2f0ea;
+                border-style: solid;
+                padding: 5px;
+            }
+            #page-wrap  {
+                width: 200px;
+                height: 400px;
+                float: left;
+            }
+            .custome{
+                width : 130px;
+            }
+            .legend {
+                line-height: 18px;
+                color: #555;
+            }
+            .legend i {
+                width: 18px;
+                height: 18px;
+                float: left;
+                margin-right: 8px;
+                opacity: 0.7;
+            }
+            .info {
+                padding: 6px 8px;
+                font: 14px/16px Arial, Helvetica, sans-serif;
+                background: white;
+                background: rgba(255,255,255,0.8);
+                box-shadow: 0 0 15px rgba(0,0,0,0.2);
+                border-radius: 5px;
+            }
+            .info h4 {
+                margin: 0 0 5px;
+                color: #777;
+            }
+            #sideWrapper{
+                position: absolute;
+                z-index: 99999;
+                height: 100%;
+                right: 0px;
+                width: 25%;
+                overflow: auto;
+            }
+            #sideButton{
+                position: absolute;
+                z-index: 99999;
+                top: 200px;
+                right: 25%;
+                width: 95px;
+
+                background: #000000;
+            }
+            .searchRan{
+
+                background: white;
+                    padding: 10px;
+
+            }
+            .Mycanvas{
+
+                width:300px !important;
+                height:180px !important;
+
+            }
+            
+            /*table.myClTb{
+                border: 1px solid white;
+                border-collapse: collapse;
+                color:white;
+            }.myClTb td{
+                border: 1px solid white;
+                border-collapse: collapse;
+                color:white;
+            }.myClTb tr{
+                border: 1px solid white;
+                border-collapse: collapse;
+                color:white;
+            }*/
+            
+        </style>
+
+    </head>
+    <body style="background: beige;">
+        <div id="main">
+            <p id='stateHeader' style="width: 100%">
+                <button id="viewAllStates">View All States</button>
+                <span id ="stateHeaderText"></span>
+            </p>
+            <div id="map" style="border: 1px solid #ccc"></div>
+        </div>
+        <div id="sideButton">
+            <b><a style="color: white;">Explore Map</a></b>
+        </div>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="libs/jquery/jquery-ui.css">
+
+        <script src="libs/jquery/jquery-ui.js"></script>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="libs/leaflet/leaflet.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-omnivore/0.3.4/leaflet-omnivore.min.js"></script>
+
+        <script type="text/javascript" src="libs/leaflet/leaflet.ajax.js"></script>
+        <script type="text/javascript" src="libs/lodash.js"></script>
+
+        <script type="text/javascript" src="libs/charts/moment.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.min.js"></script>
+
+        <script type="text/javascript" src="libs/dataTables/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="libs/dataTables/dataTables.buttons.min.js"></script>
+        <script type="text/javascript" src="libs/dataTables/buttons.print.min.js"></script>
+        <!--<script type="text/javascript" src="libs/jsPdf/jspdf.debug.js"></script>-->
+        <script type="text/javascript" src="libs/jsPdf/spdf.min.js"></script>
+        <script type="text/javascript" src="libs/leafletColorMarker/js/leaflet-color-markers.js"></script>
+
+        <script src="js/appjs/customSearch.js"></script>
+        <script src="js/appjs/util.js"></script>
+        <script src="js/appjs/StateCustomListItem.js"></script>
+        <script src="js/appjs/StateIncidentListItem.js"></script>
+        <script src="js/appjs/StateCustomList.js"></script>         
+        <script src="js/appjs/StateIncidentList.js"></script>
+
+        <script src="js/appjs/thirdfullmain.js"></script>
+
+        <div id="sideWrapper">
+            <div id="tabs">
+                <ul>
+                    <li><a href="#tabs-1">State</a></li>
+                    <li><a href="#tabs-2">Incidents</a></li>
+                    <li><a href="#tabs-3">Reports</a></li>
+                </ul>
+                <div id="tabs-1">
+                    <div id = "stateListArr"></div>
+                </div>
+                <div id="tabs-2">
+                    
+                    <!--                    <ol class="breadcrumb">
+                                            <li><a href="#">Incident Trends</a></li>
+                                            <li><a href="#">Property</a></li>
+                                        </ol>-->
+
+
+<!--                    <table>
+                        <tr>
+                            <td><canvas id="line-chart-1"  width="100" height="100"></canvas></td>
+                            <td><canvas id="line-chart-2"  width="100" height="100"></canvas></td>
+                            <td><canvas id="line-chart-3"  width="100" height="100"></canvas></td>
+                        </tr>
+                    </table>-->
+
+                    <div id = "stateIncidentListArr">
+
+                    </div>
+                </div>
+                <div id="tabs-3">
+				
+
+                    
+
+                <!-- <div class="incident-wise-counts-container">
+                    <table width="100%" style="background: beige;
+                           text-align: center;">
+                        <tbody><tr>
+                                <td>
+                                    <strong id="count_inci_1"></strong>
+                                    <br>
+                                    <em id="inci_1"></em>
+                                </td>
+                                <td>
+                                    <strong id="count_inci_2"></strong>
+                                    <br>
+                                    <em id="inci_2"></em>
+                                </td>
+                                <td>
+                                    <strong id="count_inci_3"></strong>
+                                    <br>
+                                    <em id="inci_3"></em>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p>Trends for all incidents.</p>
+
+                    <canvas id="line-single-1" class="Mycanvas" ></canvas>
+                    <canvas id="line-single-2" class="Mycanvas" ></canvas>
+                    <canvas id="line-single-3" class="Mycanvas" ></canvas>
+                    <canvas id="line-single-4"  class="Mycanvas" ></canvas>
+                    <canvas id="line-single-5"  class="Mycanvas" ></canvas>
+                    <canvas id="line-single-6"  class="Mycanvas" ></canvas>
+                    <canvas id="line-single-7"  class="Mycanvas" ></canvas>
+                    <canvas id="line-single-8"  class="Mycanvas" ></canvas>
+                    <canvas id="line-single-9"  class="Mycanvas" ></canvas>
+                    <canvas id="line-single-10" class="Mycanvas" ></canvas>
+
+                </div> -->
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
